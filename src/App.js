@@ -3,6 +3,7 @@ import './App.css'
 import ExpenseForm from './components/ExpenseForm'
 import SearchBar from './components/SearchBar'
 import SortButton from './components/SortButton'
+import Header from './components/Header'
 
 function App() {
   const [expenses, setExpenses] = useState([
@@ -16,12 +17,15 @@ function App() {
   }
 
   return (
+    <>
+    <Header/>
     <div className="App">
-      <h1>Expense Tracker</h1>
+      
       <ExpenseForm setExpenses={setExpenses} expenses={expenses} />
       <SearchBar expenses={expenses} handleDelete={handleDelete} />
       <SortButton expenses={expenses} setExpenses={setExpenses} />
     </div>
+    </>
   )
 }
 

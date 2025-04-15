@@ -9,6 +9,7 @@ function ExpenseTable({ filteredExpenses = [], handleDelete }) {
             <th>Expense</th>
             <th>Category</th>
             <th>Description</th>
+            <th>Amount</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -19,6 +20,7 @@ function ExpenseTable({ filteredExpenses = [], handleDelete }) {
                 <td>{expense.name}</td>
                 <td>{expense.category}</td>
                 <td>{expense.description}</td>
+                <td>{expense.amount}</td>
                 <td>
                   <button onClick={() => handleDelete(index)} className="delete-button">Delete</button>
                 </td>
