@@ -1,6 +1,8 @@
 import React from 'react'
 
-function ExpenseTable({ filteredExpenses = [], handleDelete }) {
+function ExpenseTable(props) {
+  const filteredExpenses = props.filteredExpenses
+
   return (
     <div className="table-container">
       <table>
@@ -15,20 +17,26 @@ function ExpenseTable({ filteredExpenses = [], handleDelete }) {
         </thead>
         <tbody>
           {filteredExpenses.length > 0 ? (
-            filteredExpenses.map((expense, index) => (
-              <tr key={index}>
-                <td>{expense.name}</td>
-                <td>{expense.category}</td>
-                <td>{expense.description}</td>
-                <td>{expense.amount}</td>
-                <td>
-                  <button onClick={() => handleDelete(index)} className="delete-button">Delete</button>
-                </td>
-              </tr>
-            ))
+            filteredExpenses.map(function(expense, index) {
+              return (
+                <tr key={index}>
+                  <td>{expense.name}</td>
+                  <td>{expense.category}</td>
+                  <td>{expense.description}</td>
+                  <td>${expense.amount}</td>
+                  <td>
+                    <button onClick={function() { props.handleDelete(index) }} className="delete-button">Delete</button>
+                  </td>
+                </tr>
+              )
+            })
           ) : (
             <tr>
-              <td colSpan="4">No expenses found.</td>
+              <td>No expenses found.</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
           )}
         </tbody>
