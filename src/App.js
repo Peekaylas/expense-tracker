@@ -7,9 +7,9 @@ import Header from './components/Header'
 
 function App() {
   const [expenses, setExpenses] = useState([
-    { name: 'Lunch', category: 'Food', description: 'Weekly Lunch', amount: 20 },
-    { name: 'Uber Tokens', category: 'Transport', description: 'Add to my shoe collection', amount: 10 },
-    { name: 'Bank Repayment', category: 'Bills', description: 'Power tokens', amount: 100 },
+    { name: 'Breakfast', category: 'Food', description: 'Daily', amount: 1 },
+    { name: 'Uber eats', category: 'Delievery', description: 'Home', amount: 10 },
+    { name: 'Water', category: 'Bills', description: 'Liters', amount: 10 },
   ])
 
   const handleDelete = (indexToDelete) => {
