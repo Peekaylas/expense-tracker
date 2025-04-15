@@ -32,7 +32,7 @@ function ExpenseForm({ setExpenses, expenses }) {
           name="name"
           value={newExpense.name}
           onChange={handleInputChange}
-          placeholder="Ugli Mutambo"
+          placeholder="Chapo ama"
         />
         <label>Choose Expense Category</label>
         <input
@@ -40,7 +40,7 @@ function ExpenseForm({ setExpenses, expenses }) {
           name="category"
           value={newExpense.category}
           onChange={handleInputChange}
-          placeholder="Buy book"
+          placeholder="Wapi"
         />
         <label>Enter Expense Description</label>
         <input
@@ -48,7 +48,7 @@ function ExpenseForm({ setExpenses, expenses }) {
           name="description"
           value={newExpense.description}
           onChange={handleInputChange}
-          placeholder="Add to my shoe collection"
+          placeholder="Purpose?"
         />
         <label>Enter amount</label>
         <input
@@ -56,7 +56,7 @@ function ExpenseForm({ setExpenses, expenses }) {
           name="amount"
           value={newExpense.amount}
           onChange={handleInputChange}
-          placeholder="0"
+          placeholder="Ngapi"
         />
         <button type="submit">SUBMIT</button>
       </form>
