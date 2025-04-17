@@ -1,14 +1,10 @@
 import React, { useState } from 'react'
 import ExpenseTable from './ExpenseTable'
 
-function SearchBar({ expenses, handleDelete }) {
+function SearchBar({ expenses, deleteExpense }) {
   const [searchTerm, setSearchTerm] = useState('')
 
-  const handleSearch = (e) => {
-    setSearchTerm(e.target.value)
-  }
-
-  const filteredExpenses = expenses.filter((expense) =>
+  const filteredExpenses = expenses.filter(expense =>
     expense.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     expense.description.toLowerCase().includes(searchTerm.toLowerCase())
   )
@@ -19,11 +15,11 @@ function SearchBar({ expenses, handleDelete }) {
         <input
           type="text"
           value={searchTerm}
-          onChange={handleSearch}
-          placeholder="Search..."
+          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="Search expenses..."
         />
       </div>
-      <ExpenseTable filteredExpenses={filteredExpenses} handleDelete={handleDelete} />
+      <ExpenseTable filteredExpenses={filteredExpenses} handleDelete={deleteExpense} />
     </div>
   )
 }

@@ -1,60 +1,56 @@
 import React, { useState } from 'react'
 
 function ExpenseForm({ setExpenses, expenses }) {
-  const [newExpense, setNewExpense] = useState({
-    name: '',
-    category: '',
-    description: '',
-    amount: ''
-  })
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setNewExpense({ ...newExpense, [name]: value })
-  }
+  const [name, setName] = useState('')
+  const [category, setCategory] = useState('')
+  const [description, setDescription] = useState('')
+  const [amount, setAmount] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (newExpense.name && newExpense.category && newExpense.description && newExpense.amount) {
-      setExpenses([...expenses, { ...newExpense, amount: parseFloat(newExpense.amount) }])
-      setNewExpense({ name: '', category: '', description: '', amount: '' })
+    if (name && category && description && amount) {
+      setExpenses([...expenses, { name, category, description, amount: parseFloat(amount) }])
+      setName('')
+      setCategory('')
+      setDescription('')
+      setAmount('')
     } else {
-      alert('Please fill out all fields.')
+      alert('Please fill all fields!')
     }
   }
 
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
-        <label>Choose Bears</label>
+        <label>Name</label>
         <input
           type="text"
-          name="name"
-          value={newExpense.name}
-          placeholder="Chapo ama"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Expense name"
         />
-        <label>Choose Expense Category</label>
+        <label>Category</label>
         <input
           type="text"
-          name="category"
-          value={newExpense.category}
-          placeholder="Wapi"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          placeholder="Category"
         />
-        <label>Enter Expense Description</label>
+        <label>Description</label>
         <input
           type="text"
-          name="description"
-          value={newExpense.description}
-          placeholder="Purpose?"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder="Description"
         />
-        <label>Enter amount</label>
+        <label>Amount</label>
         <input
           type="number"
-          name="amount"
-          value={newExpense.amount}
-          placeholder="Ngapi"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          placeholder="Amount"
         />
-        <button type="submit">SUBMIT</button>
+        <button type="submit">Add Expense</button>
       </form>
     </div>
   )

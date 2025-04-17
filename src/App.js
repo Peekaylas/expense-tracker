@@ -8,24 +8,29 @@ import Header from './components/Header'
 function App() {
   const [expenses, setExpenses] = useState([
     { name: 'Breakfast', category: 'Food', description: 'Daily', amount: 1 },
-    { name: 'Uber eats', category: 'Delievery', description: 'Home', amount: 10 },
+    { name: 'Uber eats', category: 'Delivery', description: 'Home', amount: 10 },
     { name: 'Water', category: 'Bills', description: 'Liters', amount: 10 },
   ])
 
-  const handleDelete = (indexToDelete) => {
-    setExpenses(expenses.filter((_, index) => index !== indexToDelete))
+  const deleteExpense = (index) => {
+    setExpenses(expenses.filter((_, i) => i !== index))
   }
 
   return (
-    <>
-    <Header/>
-    <div className="App">
-      
-      <ExpenseForm setExpenses={setExpenses} expenses={expenses} />
-      <SearchBar expenses={expenses} handleDelete={handleDelete} />
-      <SortButton expenses={expenses} setExpenses={setExpenses} />
+    <div>
+      <Header />
+      <div className="App">
+        <div className="main-container">
+          <div className="table-section">
+            <SearchBar expenses={expenses} deleteExpense={deleteExpense} />
+          </div>
+          <div className="form-section">
+            <ExpenseForm setExpenses={setExpenses} expenses={expenses} />
+          </div>
+        </div>
+        <SortButton expenses={expenses} setExpenses={setExpenses} />
+      </div>
     </div>
-    </>
   )
 }
 

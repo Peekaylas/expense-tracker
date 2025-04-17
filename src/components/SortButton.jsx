@@ -1,16 +1,14 @@
 import React from 'react'
 
 function SortButton({ expenses, setExpenses }) {
-  const handleSort = () => {
-    const sortedExpenses = [...expenses].sort((a, b) =>
-      a.category.localeCompare(b.category)
-    )
-    setExpenses(sortedExpenses)
+  const sortExpenses = () => {
+    const sorted = [...expenses].sort((a, b) => a.category.localeCompare(b.category))
+    setExpenses(sorted)
   }
 
   return (
     <div className="sort-container">
-      <button onClick={handleSort}>Sort by Category</button>
+      <button onClick={sortExpenses}>Sort by Category</button>
     </div>
   )
 }
